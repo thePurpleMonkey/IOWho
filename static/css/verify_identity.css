@@ -1,0 +1,35 @@
+#submit {
+	display: inline-block;
+	width: 10em;
+}
+
+.label {
+	margin-top: .75rem;
+	margin-bottom: 0;
+	color: gray;
+	font-size: small;;
+}
+
+input {
+	margin-bottom: 1em;
+	font-size: large;
+}
+
+#email, #name {
+	width: 15em;
+}
+
+#postal {
+	width: 4em;
+}
+
+#help {
+	margin-top: -3px;
+	filter: invert(50%);
+	transition: filter .5s;
+}
+
+#help:hover {
+	filter: invert(25%);
+	transition: filter .5s;
+}

@@ -1,0 +1,7 @@
+{{template "site_name"}} - Verification email
+
+Hello,
+* To verify your account, copy the URL below and paste it into your browser:
+{{.Href}}
+
+Thank you for using {{template "site_name"}}.

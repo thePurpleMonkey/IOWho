@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+	<div class="navbar-brand">
+		<img src="/img/logo.png" alt='{{template "site_name"}} Logo' loading="lazy" width=30 height=30>
+		{{template "site_name"}}
+	</div>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item" id="navbar_dashboard">
+				<a class="nav-link" href="/dashboard.html">Dashboard</a>
+			</li>
+			<li class="nav-item" id="navbar_transactions">
+				<a class="nav-link" href="/transactions.html">Transactions</a>
+			</li>
+			<li class="nav-item" id="navbar_contacts">
+				<a class="nav-link" href="/contacts.html">Contacts</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item hidden" id="navbar_account">
+				<a href="/account.html" class="btn btn-sm btn-outline-secondary ml-sm-2 mt-2 mt-sm-0">Account</a>
+			</li>
+			<li class="nav-item hidden" id="navbar_logout">
+				<a href="javascript:;" class="btn btn-sm btn-outline-secondary ml-sm-2 mt-2 mt-sm-0" id="navbar_logout">Logout</a>
+			</li>
+			<li class="nav-item hidden" id="navbar_register">
+				<a href="/register.html" class="nav-link ml-sm-2">Register</a>
+			</li>
+			<li class="nav-item hidden" id="navbar_login">
+				<a href="/login.html" class="nav-link text-primary ml-sm-2">Login</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<script type="module">
+	import { is_user_logged_in } from "/js/utilities.js";
+
+	$("#navbar_logout").click(function() { 
+		$.get('/user/logout')
+		.done(function() {
+			// Set the user to be logged out
+			try {
+				window.localStorage.setItem("logged_in", false);
+			} catch (err) {
+				console.warn("Unable to set local storage variable 'logged_in'");
+				console.warn(err);
+			}
+
+			// Redirect to homepage
+			window.location.href = '/'; 
+		});
+	});
+
+	if (is_user_logged_in()) {
+		$("#navbar_account").removeClass("hidden");
+		$("#navbar_logout").removeClass("hidden");
+	} else {
+		$("#navbar_register").removeClass("hidden");
+		$("#navbar_login").removeClass("hidden");
+		$("#navbar_collections").addClass("hidden");
+	}
+
+	if (window.location.pathname.length > 1) {
+		$("#navbar_login a").attr("href", "/login.html?redirect=" + encodeURIComponent(window.location.pathname + window.location.search));
+		$("#navbar_register a").attr("href", "/register.html?redirect=" + encodeURIComponent(window.location.pathname + window.location.search));
+	}
+</script>

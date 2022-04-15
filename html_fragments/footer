@@ -1,0 +1,16 @@
+
+<hr>
+<div id="footer" style="font-size: x-small; margin-bottom: 16px;">
+	<a href="/contact.html">Contact Us</a>
+	&nbsp;-&nbsp;
+	<a target="_blank" href="https://icons8.com/icon/8Df09KorVgyP/money">Money</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+</div>
+
+<!-- Cookie Banner -->
+<div class="nk-cookie-banner alert alert-dark text-center mb-0" role="alert">
+&#x1F36A; This website uses cookies to ensure you get the best experience on our website.
+<a href="https://www.cookiesandyou.com/" target="blank">Learn more</a>
+<button type="button" class="btn btn-primary btn-sm ml-3" onclick="window.nk_hideCookieBanner()">
+	I Got It
+</button>
+</div>

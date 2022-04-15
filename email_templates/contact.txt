@@ -1,0 +1,21 @@
+{{template "site_name"}} - Contact Us Form Response
+
+New message from the Contact Us form on {{template "site_name"}}.
+
+User Message:
+
+Name: {{.Name}}
+Email Address: {{.Email}}
+Message: {{.Message}}
+
+
+
+User information:
+
+Authenticated message: {{.UserAuthenticated}}
+{{- if .UserAuthenticated}}
+User ID: {{.UserID}}
+Account Email: {{.UserEmail}}
+Account Verified: {{.UserVerified}}
+Account Suspended: {{.UserSuspended}}
+{{- end}}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{{template "header"}}
+		<title>Verify Email - Sheet Music Organizer</title>
+	</head>
+	<body>
+		{{template "navbar"}}
+		
+		<div class="container">
+			<h1>Verify Email</h1>
+			<hr>
+			<div id="before">
+				<p>
+					In order to continue with your account registration, you must verify your email address first.
+					You will receive an email to the email address below with a link to verify your account.
+					Please click on the link in the email to proceed with your account registration.
+				</p>
+				<p>
+					Email address: <span id="email"></span>
+				</p>
+				<button type="button" class="btn btn-primary" id="verify_email_button">Send verification email</button>
+			</div>
+			<div id="after" class="hidden">
+				<p>
+					Your verification email has been sent!
+					It can take up to 10 minutes to arrive in your inbox.
+					Check your spam folders if you do not see the email.
+					Please click on the link in the email to continue your registration.
+					You may close this page.
+				</p>
+			</div>
+			{{template "footer"}}
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade in" tabindex="-1" role="dialog" id="wait" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Sending verification email...</h5>
+				</div>
+				<div class="modal-body">
+					<p>Please wait while your verification email is sent...</p>
+				</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Script -->
+		<script src="/js/verify_email.js" type="module"></script>
+	</body>
+</html>
