@@ -2,12 +2,8 @@
 	margin-top: 10px;
 	width: 10em;
 }
-  
-#description {
-	font-style: italic;
-}
 
-  /* Filter icon */
+/* Filter icon */
 #filter {
 	margin-left: .2em;
 	height: .6em;

@@ -36,9 +36,10 @@ func makeRouter() *mux.Router {
 	r.HandleFunc("/user/password/reset", resetPassword)
 	r.HandleFunc("/user/verify_email", RequireAuthentication(VerifyEmailHandler))
 
-	// r.HandleFunc("/transactions", RequireAuthentication(TransactionsHandler))
+	r.HandleFunc("/transactions", RequireAuthentication(TransactionsHandler)).Methods("GET", "POST")
+	r.HandleFunc("/transaction/{transaction_id}", RequireAuthentication(TransactionHandler)).Methods("GET", "PUT")
 	r.HandleFunc("/contacts", RequireAuthentication(ContactsHandler)).Methods("GET", "POST")
-	r.HandleFunc("/contact/{contact_id}", RequireAuthentication(ContactHandler)).Methods("GET", "POST")
+	r.HandleFunc("/contact/{contact_id}", RequireAuthentication(ContactHandler)).Methods("GET", "PUT")
 
 	// Contact Us
 	// r.HandleFunc("/contact", ContactHandler).Methods("POST")

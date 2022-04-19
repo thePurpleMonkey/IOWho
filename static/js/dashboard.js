@@ -42,10 +42,9 @@ function added_compare(item1, item2) {
 }
 
 function reloadTransactions() {
-    return;
     $("#transactions").empty();
     $("#transactions").append('<a class="list-group-item">Loading transactions, please wait...</a>');
-    let payload = undefined;
+    let payload = { recent: 10 };
     let result = $.Deferred();
 
     $.get(`/transactions`, payload)
